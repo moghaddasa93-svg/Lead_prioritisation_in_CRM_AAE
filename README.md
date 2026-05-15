@@ -60,43 +60,55 @@ The project builds on a previous MLOps lead scoring project and extends it towar
 - User authentication and role management
 - Production-grade monitoring
 
+
 ## Repository Structure
+
+The repository structure is intentionally kept simple at the beginning of the project and will be extended as the implementation develops. The structure reflects the project scope: data preprocessing, model comparison, clustering, CRM-style decision support, lightweight deployment, logging, monitoring, and reporting.
 
 ```text
 Lead_prioritisation_in_CRM_AAE/
 │
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── docker-compose.yml              # Added/updated when Docker setup is ready
+│
 ├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── sample/
+│   ├── raw/                         # Original dataset
+│   ├── processed/                   # Cleaned/preprocessed datasets
+│   └── sample/                      # Small sample data for testing/demo
 │
 ├── notebooks/
+│   ├── 01_eda_and_feature_selection.ipynb
+│   ├── 02_model_comparison.ipynb
+│   └── 03_clustering_and_pca.ipynb
 │
 ├── src/
-│   ├── data/
-│   ├── features/
-│   ├── models/
-│   ├── clustering/
-│   ├── recommendations/
-│   ├── database/
-│   └── monitoring/
+│   ├── preprocessing.py             # Data cleaning and preprocessing logic
+│   ├── feature_engineering.py        # Feature creation and feature selection
+│   ├── train_models.py              # Logistic Regression, Random Forest, MLP
+│   ├── evaluate_models.py           # Model comparison and metrics
+│   ├── clustering.py                # K-means clustering and PCA
+│   ├── recommendations.py           # Rule-based priority labels and actions
+│   ├── database.py                  # SQLite setup and database operations
+│   └── monitoring.py                # Logging and basic monitoring metrics
 │
 ├── api/
+│   └── main.py                      # FastAPI prediction service
 │
 ├── dashboard/
+│   └── streamlit_app.py             # CRM-style Streamlit dashboard
 │
 ├── artifacts/
-│   ├── models/
-│   ├── preprocessors/
-│   ├── clustering/
-│   └── metrics/
+│   ├── models/                      # Saved trained models
+│   ├── preprocessors/               # Saved preprocessing pipeline
+│   ├── clustering/                  # Saved clustering outputs/models
+│   └── metrics/                     # Evaluation metrics and comparison results
 │
 ├── reports/
-│   ├── figures/
-│   └── screenshots/
+│   ├── figures/                     # Plots for the report
+│   └── screenshots/                 # Dashboard/API/system screenshots
 │
-├── configs/
-├── tests/
-├── requirements.txt
-├── docker-compose.yml
-└── README.md
+└── configs/
+    └── config.yaml                  # Optional configuration file
+
