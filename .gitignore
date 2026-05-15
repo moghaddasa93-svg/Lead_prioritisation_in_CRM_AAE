@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+# System files
+.DS_Store
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Data files
+data/raw/*
+data/processed/*
+data/sample/*
+
+# Keep folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/sample/.gitkeep
+
+# Temporary artifacts
+artifacts/tmp/
+
+# Jupyter
+.ipynb_checkpoints/
